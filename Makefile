@@ -11,13 +11,15 @@
 CC=gcc
 # CFLAGS are the relevant compiler flags (e.g. shared and fPIC for a shared 
 # library, O2 for optimizations, Wall to display all warnings, ...)
-CFLAGS=-shared -pthread -fPIC -fwrapv -O2 -Wall -fno-strict-aliasing
+
+
+CFLAGS=-shared -pthread -fPIC -fwrapv -O2 -Wall -fno-strict-aliasing -DLINUX
 # LDFLAGS are the linker flags, lCAENVME means we are linking against the
 # pre-compiled CAENVMElib (if there are errors check your LD_LIBRARY_PATH)
 LDFLAGS=-lCAENVME
 # INCLUDES specifies additional directories for headers, here we get the path
 # for the python headers from executing 'python-config'
-INCLUDES=
+INCLUDES=-I/usr/lib64/python2.7/site-packages/numpy/core/include 
 INCLUDES +=$(shell python-config --includes)
 # CYTHON is the cython command 
 CYTHON=cython
