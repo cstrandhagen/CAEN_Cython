@@ -118,35 +118,39 @@ cdef extern from "/local/scratch0/astro/VME_lib/CAENVMElib.h":
     CAENVME_API CAENVME_DeviceReset(int Handle)
     CAENVME_API CAENVME_End(int Handle)
     CAENVME_API CAENVME_ReadCycle(int Handle, 
-                                                           int Address, 
-                                                           void *Data,
-                                                           CVAddressModifier AM, 
-                                                           CVDataWidth DW)
+                                  int Address, 
+                                  void *Data,
+                                  CVAddressModifier AM, 
+                                  CVDataWidth DW)
                                                            
     CAENVME_API CAENVME_WriteCycle(int Handle, 
-                                                           int Address, 
-                                                           void *Data,
-                                                           CVAddressModifier AM, 
-                                                           CVDataWidth DW)
+                                   int Address, 
+                                   void *Data,
+                                   CVAddressModifier AM, 
+                                   CVDataWidth DW)
                                                            
     CAENVME_API CAENVME_BLTReadCycle(int Handle, 
-                                                                int Address, 
-                                                                void *Buffer,
-                                                                int Size, 
-                                                                CVAddressModifier AM, 
-                                                                CVDataWidth DW, 
-                                                                int *count)
+                                     int Address, 
+                                     void *Buffer,
+                                     int Size, 
+                                     CVAddressModifier AM, 
+                                     CVDataWidth DW, 
+                                     int *count)
                                                                 
-    CAENVME_API CAENVME_SetPulserConf(int Handle, CVPulserSelect PulSel,
-                                                                int Period, int Width, 
-                                                                CVTimeUnits Unit, 
-                                                                int PulseNo, CVIOSources Start, 
-                                                                CVIOSources Reset)
+    CAENVME_API CAENVME_SetPulserConf(int Handle,
+                                      CVPulserSelect PulSel,
+                                      int Period,
+                                      int Width, 
+                                      CVTimeUnits Unit, 
+                                      int PulseNo,
+                                      CVIOSources Start, 
+                                      CVIOSources Reset)
                                                                 
-    CAENVME_API CAENVME_SetOutputConf(int Handle, CVOutputSelect OutSel, 
-                                                                  CVIOPolarity OutPol, 
-                                                                  CVLEDPolarity LEDPol, 
-                                                                  CVIOSources Source)
+    CAENVME_API CAENVME_SetOutputConf(int Handle,
+                                      CVOutputSelect OutSel, 
+                                      CVIOPolarity OutPol, 
+                                      CVLEDPolarity LEDPol, 
+                                      CVIOSources Source)
                                                                   
     CAENVME_API CAENVME_StartPulser(int Handle, CVPulserSelect PulSel)
     CAENVME_API CAENVME_StopPulser(int Handle, CVPulserSelect PulSel)
@@ -154,7 +158,8 @@ cdef extern from "/local/scratch0/astro/VME_lib/CAENVMElib.h":
     CAENVME_API CAENVME_IRQDisable(int Handle, int mask)
     CAENVME_API CAENVME_IRQWait(int Handle, int mask, int timeout)
     CAENVME_API CAENVME_IRQCheck(int Handle, unsigned char *mask)
-    CAENVME_API CAENVME_IACKCycle(int Handle, CVIRQLevels Level, 
-                                                          void *vector, CVDataWidth DW)
-                                                                                                                                                                                        
-                                                                                                                                                                                        
+    
+    CAENVME_API CAENVME_IACKCycle(int Handle,
+                                  CVIRQLevels Level, 
+                                  void *vector,
+                                  CVDataWidth DW)
