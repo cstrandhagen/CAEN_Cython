@@ -9,7 +9,7 @@ caenvmelib.pxd
 In this section type definitions from the CAENVMEtypes header are repeated, so
 they can be used by python.
 """
-cdef extern from "/local/scratch0/astro/VME_lib/CAENVMEtypes.h":
+cdef extern from "CAENVMEtypes.h":
     ctypedef CVErrorCodes CAENVME_API
 
     enum CVBoardTypes:
@@ -107,7 +107,7 @@ In this section the functions from CAENVMElib which should be callable from
 python are declared. Note that some variable types are different (e.g. int 
 instead of uint32_t, ...)
 """
-cdef extern from "/local/scratch0/astro/VME_lib/CAENVMElib.h":
+cdef extern from "CAENVMElib.h":
     const char * CAENVME_DecodeError(CVErrorCodes Code)
     CAENVME_API CAENVME_Init(CVBoardTypes BdType, short Link, 
                                                  short BdNum, int *Handle)
