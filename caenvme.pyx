@@ -11,6 +11,14 @@ import numpy as np
 cimport caenvmelib    # import definitions from caenvmelib.pxd
 cimport numpy as np
 
+ctypedef np.int8_t int8_t
+ctypedef np.int16_t int16_t
+ctypedef np.int32_t int32_t
+ctypedef np.int64_t int64_t
+ctypedef np.uint16_t uint16_t
+ctypedef np.uint32_t uint32_t
+ctypedef np.uint64_t uint64_t
+
 
 def enum(**enums):
     return type('Enum', (), enums)
@@ -115,7 +123,7 @@ def BoardFWRelease(handle):
 
 def DriverRelease(handle):
     """
-    Returns the driver version of the CAEN PCI controller. 
+    Returns the driver version of the CAEN PCI controller.
     """
     cdef char* release = ''
     errorcode = caenvmelib.CAENVME_DriverRelease(handle, release)
@@ -152,6 +160,7 @@ cdef _c_SingleReadD32(handle, address):
     the c function to something that python understands.
     """
     cdef int data
+
     errorcode = caenvmelib.CAENVME_ReadCycle(handle,
                                              address,
                                              &data,
@@ -164,14 +173,14 @@ cdef _c_SingleReadD32(handle, address):
     return data
 
 
-def SingleReadD32(handle, address):
+def SingleReadD32(handle, uint32_t address):
     """
     Reads a single 32bit word from the given address.
     """
     return _c_SingleReadD32(handle, address)
 
 
-cdef _c_SingleReadD16(handle, address):
+cdef _c_SingleReadD16(handle, uint32_t address):
     """
     This is just a helper function needed to translate the void* expected by
     the c function to something that python understands.

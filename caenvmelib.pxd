@@ -118,19 +118,19 @@ cdef extern from "CAENVMElib.h":
     CAENVME_API CAENVME_DeviceReset(int Handle)
     CAENVME_API CAENVME_End(int Handle)
     CAENVME_API CAENVME_ReadCycle(int Handle, 
-                                  int Address, 
+                                  unsigned int Address, 
                                   void *Data,
                                   CVAddressModifier AM, 
                                   CVDataWidth DW)
                                                            
     CAENVME_API CAENVME_WriteCycle(int Handle, 
-                                   int Address, 
+                                   unsigned int Address, 
                                    void *Data,
                                    CVAddressModifier AM, 
                                    CVDataWidth DW)
                                                            
     CAENVME_API CAENVME_BLTReadCycle(int Handle, 
-                                     int Address, 
+                                     unsigned int Address, 
                                      void *Buffer,
                                      int Size, 
                                      CVAddressModifier AM, 
